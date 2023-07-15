@@ -49,7 +49,7 @@ public class Program {
 		System.out.println("Seller has been deleted");
 		
 		System.out.println("\n=== TEST 6: Seller deleteByName ===");
-		sellerDao.deleteByName("Greg");
+		sellerDao.deleteByName("Durval");
 		System.out.println("Seller has been deleted");
 	
 		
