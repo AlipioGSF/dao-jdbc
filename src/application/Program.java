@@ -38,6 +38,20 @@ public class Program {
 		seller.setName("Durval");
 		sellerDao.update(seller);
 		System.out.println("Seller has been updated");
+				
+
+		System.out.println("\n=== TEST 6: Seller deleteById ===");
+		sellerDao.deleteByid(64);
+		System.out.println("Seller has been deleted");
+		
+		System.out.println("\n=== TEST 6: Seller deleteById ===");
+		sellerDao.deleteByid(71);
+		System.out.println("Seller has been deleted");
+		
+		System.out.println("\n=== TEST 6: Seller deleteByName ===");
+		sellerDao.deleteByName("Greg");
+		System.out.println("Seller has been deleted");
+	
 		
 	}
 

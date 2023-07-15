@@ -91,9 +91,23 @@ public class SellerDaoJDBC implements SellerDao {
 
 	@Override
 	public void deleteByid(Integer id) {
-		// TODO Auto-generated method stub
+		PreparedStatement st = null;
+		
+		try {
+			st = conn.prepareStatement(
+					"delete from seller "
+					+ "where Id = ?"
+			);
+			
+			st.setInt(1, id);
+			st.execute();
+			
+		}catch(SQLException e) {
+			throw new DbException(e.getMessage());
+		}
 
 	}
+	
 
 	@Override
 	public Seller findById(Integer id) {
@@ -120,6 +134,7 @@ public class SellerDaoJDBC implements SellerDao {
 
 	}
 
+	
 	private Seller instantiateSeller(ResultSet rs, Department dep) throws SQLException {
 		Seller seller = new Seller();
 
@@ -207,6 +222,25 @@ public class SellerDaoJDBC implements SellerDao {
 		} catch (SQLException e) {
 			throw new DbException(e.getMessage());
 		}
+	}
+
+	@Override
+	public void deleteByName(String name) {
+		PreparedStatement st = null;
+		
+		try {
+			st = conn.prepareStatement(
+					"delete from seller "
+					+ "where Name like ?"
+			);
+			
+			st.setString(1, name);
+			st.execute();
+			
+		}catch(SQLException e) {
+			throw new DbException(e.getMessage());
+		}
+		
 	}
 
 }
